@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "coworking_salas.Controllers.SalasController",
+    "Method": "GetAll",
+    "RelativePath": "api/Salas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
