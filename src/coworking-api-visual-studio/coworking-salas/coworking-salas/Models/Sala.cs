@@ -13,7 +13,7 @@ namespace coworking_salas.Models
         [Required]
         public string TipoSala { get; set; }
         [Required]
-        public string Capacidade { get; set; }
+        public int Capacidade { get; set; }
         [Required]
         public string Descrição { get; set; }
         [Required]

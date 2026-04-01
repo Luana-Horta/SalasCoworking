@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Qz3y9N1uxiI=",
+  "dgSpecHash": "pTUACTAnZ/M=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Abajur\\Documents\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj",
+  "projectFilePath": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Abajur\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",
     "C:\\Users\\Abajur\\.nuget\\packages\\azure.identity\\1.14.2\\azure.identity.1.14.2.nupkg.sha512",

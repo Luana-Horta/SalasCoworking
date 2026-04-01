@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Abajur\\Documents\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj": {}
+    "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Abajur\\Documents\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj": {
+    "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Abajur\\Documents\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj",
+        "projectUniqueName": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj",
         "projectName": "coworking-salas",
-        "projectPath": "C:\\Users\\Abajur\\Documents\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj",
+        "projectPath": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj",
         "packagesPath": "C:\\Users\\Abajur\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Abajur\\Documents\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\obj\\",
+        "outputPath": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
