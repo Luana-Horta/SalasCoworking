@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3B7100AB-C673-3AD6-F249-2A1C7756C358}|coworking-salas\\coworking-salas.csproj|c:\\users\\abajur\\documents\\github\\salascoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{3B7100AB-C673-3AD6-F249-2A1C7756C358}|coworking-salas\\coworking-salas.csproj|solutionrelative:coworking-salas\\coworking-salas.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3B7100AB-C673-3AD6-F249-2A1C7756C358}|coworking-salas\\coworking-salas.csproj|c:\\users\\abajur\\documents\\github\\salascoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\controllers\\salascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3B7100AB-C673-3AD6-F249-2A1C7756C358}|coworking-salas\\coworking-salas.csproj|solutionrelative:coworking-salas\\controllers\\salascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3B7100AB-C673-3AD6-F249-2A1C7756C358}|coworking-salas\\coworking-salas.csproj|c:\\users\\abajur\\documents\\github\\salascoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\models\\sala.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3B7100AB-C673-3AD6-F249-2A1C7756C358}|coworking-salas\\coworking-salas.csproj|solutionrelative:coworking-salas\\models\\sala.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3B7100AB-C673-3AD6-F249-2A1C7756C358}|coworking-salas\\coworking-salas.csproj|c:\\users\\abajur\\documents\\github\\salascoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{3B7100AB-C673-3AD6-F249-2A1C7756C358}|coworking-salas\\coworking-salas.csproj|solutionrelative:coworking-salas\\coworking-salas.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\Migrations\\20260407024117_M01.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:coworking-salas\\Migrations\\20260407024117_M01.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,62 +18,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SalasController.cs",
+              "DocumentMoniker": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\Controllers\\SalasController.cs",
+              "RelativeDocumentMoniker": "coworking-salas\\Controllers\\SalasController.cs",
+              "ToolTip": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\Controllers\\SalasController.cs",
+              "RelativeToolTip": "coworking-salas\\Controllers\\SalasController.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAcwFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-08T19:31:10.166Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "coworking-salas",
-              "DocumentMoniker": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj",
-              "RelativeDocumentMoniker": "coworking-salas\\coworking-salas.csproj",
-              "ToolTip": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.csproj",
-              "RelativeToolTip": "coworking-salas\\coworking-salas.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-04-01T15:25:10.998Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Sala.cs",
-              "DocumentMoniker": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\Models\\Sala.cs",
-              "RelativeDocumentMoniker": "coworking-salas\\Models\\Sala.cs",
-              "ToolTip": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\Models\\Sala.cs",
-              "RelativeToolTip": "coworking-salas\\Models\\Sala.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T18:19:16.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SalasController.cs",
-              "DocumentMoniker": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\Controllers\\SalasController.cs",
-              "RelativeDocumentMoniker": "coworking-salas\\Controllers\\SalasController.cs",
-              "ToolTip": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\Controllers\\SalasController.cs",
-              "RelativeToolTip": "coworking-salas\\Controllers\\SalasController.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAnwDMAAAAmAAAAAAAAAA==",
+              "Title": "20260407024117_M01.cs",
+              "DocumentMoniker": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\Migrations\\20260407024117_M01.cs",
+              "RelativeDocumentMoniker": "coworking-salas\\Migrations\\20260407024117_M01.cs",
+              "ToolTip": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\Migrations\\20260407024117_M01.cs",
+              "RelativeToolTip": "coworking-salas\\Migrations\\20260407024117_M01.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T18:03:25.99Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "coworking-salas.http",
-              "DocumentMoniker": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.http",
-              "RelativeDocumentMoniker": "coworking-salas\\coworking-salas.http",
-              "ToolTip": "C:\\Users\\Abajur\\Documents\\GitHub\\SalasCoworking\\src\\coworking-api-visual-studio\\coworking-salas\\coworking-salas\\coworking-salas.http",
-              "RelativeToolTip": "coworking-salas\\coworking-salas.http",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2026-03-31T17:58:02.49Z",
+              "WhenOpened": "2026-04-07T02:41:17.526Z",
               "EditorCaption": ""
             }
           ]

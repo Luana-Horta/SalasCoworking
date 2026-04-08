@@ -2,90 +2,84 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata.Ecma335;
 
 namespace coworking_salas.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SalasController : ControllerBase
+    public class UsosController : ControllerBase
     {
         private readonly AppDbContext _context;
 
-        public SalasController(AppDbContext context)
+        public UsosController(AppDbContext context)
         {
             _context = context;
 
         }
 
-        //Get é usado para recuperar dados
+        // Recupera todos
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
-            List<Sala> model = await _context.Salas.ToListAsync();
+            List<Uso> model = await _context.Usos.ToListAsync();
 
             return Ok(model);
         }
-
-        //Post é usado quando queremos criar algo.
-        // Cria uma sala no banco de dados
+        // Cria um uso no banco de dados
 
         [HttpPost]
-        public async Task<ActionResult> Create(Sala model)
+        public async Task<ActionResult> Create(Uso model)
         {
-            _context.Salas.Add(model);
+            
+            _context.Usos.Add(model);
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetByID", new {id = model.Id}, model);
+           
+            
+            return CreatedAtAction("GetByID", new { id = model.Id }, model);
 
         }
+
+        // recupera pelo id
         [HttpGet("{id}")]
         public async Task<ActionResult> GetByID(int id)
         {
-            var model = await _context.Salas
-                .Include(t => t.Usos)
+            var model = await _context.Usos
                 .FirstOrDefaultAsync(c => c.Id == id);
             if (model == null) return NotFound();
-
-            GerarLinks(model);
             return Ok(model);
 
         }
-
-        //Put é usado para atualizar dados.
-        // atualizar os dados da sala
+        // atualizar os dados de uso
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, Sala model)
+        public async Task<ActionResult> Update(int id, Uso model)
         {
             //se o id for diferente dá um bad request
             if (id != model.Id) return BadRequest();
 
             // ver se o modelo existe na base de dados e o asnotracking tira a tag de alteração de dados
-            var modeloDb = await _context.Salas.AsNoTracking()
+            var modeloDb = await _context.Usos.AsNoTracking()
                 .FirstOrDefaultAsync(c => c.Id == id);
             //se for null retorna not found
             if (modeloDb == null) return NotFound();
 
-            //se a sala existir vai atualizar os dados
-            _context.Salas.Update(model);
+            //se uso existir vai atualizar os dados
+            _context.Usos.Update(model);
             await _context.SaveChangesAsync();
 
             //não precisa retornar conteúdo porque você só quer atualizar a informação
             return NoContent();
         }
-
-        //Delete é usado para excluir dados. Tudo que você precisa é o Id:
-
+        // apagar
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             // mesma função do FirstOrDefaultAsyn ele vai recuperar as funções da chave primária do ido que foi passado como parâmetro
-            var model = await _context.Salas.FindAsync(id);
+            var model = await _context.Usos.FindAsync(id);
 
             if (model == null) return NotFound();
-            //se ele não retornou not found o conteúdo existe então então faz:
-            _context.Salas.Remove(model);
+            //se ele não retornou not found o conteúdo existe então entõ faz:
+            _context.Usos.Remove(model);
             //depois manda atualizar e salvar as alterações
             await _context.SaveChangesAsync();
 
@@ -93,13 +87,7 @@ namespace coworking_salas.Controllers
 
         }
 
-        private void GerarLinks(Sala model)
-        {
-            //para que o próprio sistema possa recuperar a rota de forma automatica
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "self", metodo: "GET"));
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "update", metodo: "PUT"));
-            model.Links.Add(new LinkDto(model.Id, Url.ActionLink(), rel: "delete", metodo: "DELETE"));
-        }
+
     }
-    
+
 }

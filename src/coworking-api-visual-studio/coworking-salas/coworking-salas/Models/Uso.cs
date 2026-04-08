@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace coworking_salas.Models
 {
     [Table("Usos")]
-    public class Uso
+    public class Uso : LinksHATEOS
     {
         [Key]
         public int Id { get; set; }
