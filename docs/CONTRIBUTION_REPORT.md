@@ -1,6 +1,6 @@
 # 📊 Relatório de Contribuições do Projeto
 
-**Última atualização:** 08/04/2026 19:39
+**Última atualização:** 09/04/2026 21:08
 
 ---
 
@@ -8,16 +8,16 @@
 
 | Aluno               |   Commits |   Linhas+ |   Linhas- |   Arquivos |   Docs Commits |   Docs Arquivos |
 |---------------------|-----------|-----------|-----------|------------|----------------|-----------------|
-| Luana               |         3 |      9629 |       141 |        265 |              0 |               0 |
+| Luana               |         4 |     10739 |       994 |        276 |              0 |               0 |
 | Luana-Horta         |         1 |      2152 |         0 |         45 |              1 |              13 |
-| github-actions[bot] |         4 |        30 |        43 |          3 |              4 |               1 |
+| github-actions[bot] |         5 |        36 |        47 |          3 |              5 |               1 |
 
 
 ## 📅 Contribuições Semanais (Todo o Semestre)
 
-**2026-04-01**: Luana: 1, github-actions[bot]: 1
+**2026-04-02**: Luana: 2, github-actions[bot]: 2
 
-**2026-03-25**: Luana: 2, Luana-Horta: 1, github-actions[bot]: 3
+**2026-03-26**: Luana: 2, Luana-Horta: 1, github-actions[bot]: 3
 
 
 
