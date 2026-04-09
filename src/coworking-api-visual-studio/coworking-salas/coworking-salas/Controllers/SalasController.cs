@@ -1,4 +1,7 @@
-﻿using coworking_salas.Models;
+﻿//Endpoints ficam aqui nos Controllers ficam responsáveis pela requisições http da WEB API
+//Padrão normalmente usa a entidade no plural(Salas)
+using coworking_salas.DTOs;
+using coworking_salas.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -6,12 +9,18 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace coworking_salas.Controllers
 {
+    //Rota do controlador dominios/api/salas
     [Route("api/[controller]")]
     [ApiController]
+    //Está herdando as configurações do controller base
     public class SalasController : ControllerBase
     {
+        //toda vez que precisar acessar o banco de dados para leitura ou gravação essa variável será utilizada
         private readonly AppDbContext _context;
 
+        //injeção de depedência, em cima criou uma entidade de somente leitura e nesse construtor(ctor) diz que recebeu um objeto do tipo AppDbContext
+        //que foi configuraddo na classe de programa
+        //toda classe que precisar usar o banco de dados basta fazer essa configuração que o banco já está disponível
         public SalasController(AppDbContext context)
         {
             _context = context;
@@ -20,8 +29,12 @@ namespace coworking_salas.Controllers
 
         //Get é usado para recuperar dados
         [HttpGet]
+        //rota de index para mostrar todas as salas cadastradas
+        //ActionREsult é o resultado da requisição Http para o serviço rest
         public async Task<ActionResult> GetAll()
         {
+            //a variável _context é o banco de dados e o ToListAsync é para fazer uma requisição assincrona
+            //para não bloquear quando existirem muitas requisiçõess
             List<Sala> model = await _context.Salas.ToListAsync();
 
             return Ok(model);
@@ -29,15 +42,39 @@ namespace coworking_salas.Controllers
 
         //Post é usado quando queremos criar algo.
         // Cria uma sala no banco de dados
-
+        //HttpPost diz que o métodp responde a requisições
+        //recebe JSON, transforma em DTO, de DTO converte para a entidade sala, prepara/add a sala, salva ela no banco, retorna 201 se der certo e 400 se der erro
         [HttpPost]
-        public async Task<ActionResult> Create(Sala model)
+        public async Task<ActionResult> Create(SalaCreateDto dto)
         {
-            _context.Salas.Add(model);
-            await _context.SaveChangesAsync();
+            //Converter JSON da requisição em objeto C#
+            try
+            {
+                //Converte o DTO em Entidade
+                var model = new Sala
+                {
+                    Nome = dto.Nome,
+                    TipoSala = dto.TipoSala,
+                    Capacidade = dto.Capacidade,
+                    Descricao = dto.Descricao,
+                    Recursos = dto.Recursos,
+                    CriadoEm = dto.CriadoEm
+                };
 
-            return CreatedAtAction("GetByID", new {id = model.Id}, model);
+                //adiciona sala ao banco
+                _context.Salas.Add(model);
+                //salva no banco de dados
+                await _context.SaveChangesAsync();
 
+                //retorna status http e indica onde acessar o recurso criado
+                return CreatedAtAction("GetByID", new { id = model.Id }, model);
+            }
+            //retorna se der erro
+            //ex.InnerException?.Message ?? ex.Message tenta pegar erro interno mais detalhado e se não conseguir pega normal
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException?.Message ?? ex.Message);
+            }
         }
         [HttpGet("{id}")]
         public async Task<ActionResult> GetByID(int id)

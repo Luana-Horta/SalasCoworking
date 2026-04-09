@@ -317,3 +317,6 @@ C:\Users\Abajur\Documents\GitHub\SalasCoworking\src\coworking-api-visual-studio\
 C:\Users\Abajur\Documents\GitHub\SalasCoworking\src\coworking-api-visual-studio\coworking-salas\coworking-salas\obj\Debug\net10.0\coworking-salas.pdb
 C:\Users\Abajur\Documents\GitHub\SalasCoworking\src\coworking-api-visual-studio\coworking-salas\coworking-salas\obj\Debug\net10.0\coworking-salas.genruntimeconfig.cache
 C:\Users\Abajur\Documents\GitHub\SalasCoworking\src\coworking-api-visual-studio\coworking-salas\coworking-salas\obj\Debug\net10.0\ref\coworking-salas.dll
+C:\Users\Abajur\Documents\GitHub\SalasCoworking\src\coworking-api-visual-studio\coworking-salas\coworking-salas\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Abajur\Documents\GitHub\SalasCoworking\src\coworking-api-visual-studio\coworking-salas\coworking-salas\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Abajur\Documents\GitHub\SalasCoworking\src\coworking-api-visual-studio\coworking-salas\coworking-salas\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll

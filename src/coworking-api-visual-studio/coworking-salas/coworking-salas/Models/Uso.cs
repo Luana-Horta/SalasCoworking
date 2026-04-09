@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace coworking_salas.Models
 {
@@ -18,7 +19,10 @@ namespace coworking_salas.Models
         [Required]
         public TipoSala Tipo { get; set; }
         [Required]
+        //Falar que uma sala tem vários usos/ relação 1 para n
         public int SalaId { get; set; }
+        //Navegação virtual
+        [JsonIgnore]
         public Sala Sala { get; set; }
 
     }

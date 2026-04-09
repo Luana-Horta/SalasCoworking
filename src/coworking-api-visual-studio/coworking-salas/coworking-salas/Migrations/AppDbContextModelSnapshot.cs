@@ -22,38 +22,6 @@ namespace coworking_salas.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("coworking_salas.Models.LinkDto", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Href")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Metodo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Rel")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("SalaId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UsoId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SalaId");
-
-                    b.HasIndex("UsoId");
-
-                    b.ToTable("LinkDto");
-                });
-
             modelBuilder.Entity("coworking_salas.Models.Sala", b =>
                 {
                     b.Property<int>("Id")
@@ -65,10 +33,10 @@ namespace coworking_salas.Migrations
                     b.Property<int>("Capacidade")
                         .HasColumnType("int");
 
-                    b.Property<int>("CriadoEm")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Descrição")
+                    b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -159,17 +127,6 @@ namespace coworking_salas.Migrations
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("coworking_salas.Models.LinkDto", b =>
-                {
-                    b.HasOne("coworking_salas.Models.Sala", null)
-                        .WithMany("Links")
-                        .HasForeignKey("SalaId");
-
-                    b.HasOne("coworking_salas.Models.Uso", null)
-                        .WithMany("Links")
-                        .HasForeignKey("UsoId");
-                });
-
             modelBuilder.Entity("coworking_salas.Models.SalaUsuarios", b =>
                 {
                     b.HasOne("coworking_salas.Models.Sala", "Sala")
@@ -202,16 +159,9 @@ namespace coworking_salas.Migrations
 
             modelBuilder.Entity("coworking_salas.Models.Sala", b =>
                 {
-                    b.Navigation("Links");
-
                     b.Navigation("Usos");
 
                     b.Navigation("Usuarios");
-                });
-
-            modelBuilder.Entity("coworking_salas.Models.Uso", b =>
-                {
-                    b.Navigation("Links");
                 });
 
             modelBuilder.Entity("coworking_salas.Models.Usuario", b =>

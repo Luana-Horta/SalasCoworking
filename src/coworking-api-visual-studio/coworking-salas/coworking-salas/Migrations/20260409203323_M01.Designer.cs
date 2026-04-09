@@ -12,8 +12,8 @@ using coworking_salas.Models;
 namespace coworking_salas.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260331035504_Initial")]
-    partial class Initial
+    [Migration("20260409203323_M01")]
+    partial class M01
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,14 +33,13 @@ namespace coworking_salas.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Capacidade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CriadoEm")
+                    b.Property<int>("Capacidade")
                         .HasColumnType("int");
 
-                    b.Property<string>("Descrição")
+                    b.Property<DateTime>("CriadoEm")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -59,6 +58,21 @@ namespace coworking_salas.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Salas");
+                });
+
+            modelBuilder.Entity("coworking_salas.Models.SalaUsuarios", b =>
+                {
+                    b.Property<int>("SalaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SalaId", "UsuarioId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("SalaUsuarios");
                 });
 
             modelBuilder.Entity("coworking_salas.Models.Uso", b =>
@@ -92,6 +106,49 @@ namespace coworking_salas.Migrations
                     b.ToTable("Usos");
                 });
 
+            modelBuilder.Entity("coworking_salas.Models.Usuario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Perfil")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuarios");
+                });
+
+            modelBuilder.Entity("coworking_salas.Models.SalaUsuarios", b =>
+                {
+                    b.HasOne("coworking_salas.Models.Sala", "Sala")
+                        .WithMany("Usuarios")
+                        .HasForeignKey("SalaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("coworking_salas.Models.Usuario", "Usuario")
+                        .WithMany("Salas")
+                        .HasForeignKey("UsuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Sala");
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("coworking_salas.Models.Uso", b =>
                 {
                     b.HasOne("coworking_salas.Models.Sala", "Sala")
@@ -106,6 +163,13 @@ namespace coworking_salas.Migrations
             modelBuilder.Entity("coworking_salas.Models.Sala", b =>
                 {
                     b.Navigation("Usos");
+
+                    b.Navigation("Usuarios");
+                });
+
+            modelBuilder.Entity("coworking_salas.Models.Usuario", b =>
+                {
+                    b.Navigation("Salas");
                 });
 #pragma warning restore 612, 618
         }

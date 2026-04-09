@@ -6,6 +6,7 @@
 //precisa fazer de forma programática para não ter ciclo
 //então tem que ccriar um metodo de sobreescrita de um método do próprio dbcontext, o protected
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace coworking_salas.Models
 {
@@ -19,6 +20,7 @@ namespace coworking_salas.Models
         //pode adicionar aqui uma navegação virtual, caso deseje recuperar eles em alguma consulta
         public Sala Sala { get; set; }
         public int UsuarioId { get; set; }
+        [JsonIgnore]
         public Usuario Usuario { get; set; }
     }
 }

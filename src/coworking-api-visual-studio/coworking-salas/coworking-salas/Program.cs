@@ -1,54 +1,39 @@
+//É para esse local que vem as configurações do AppDbContext
 using coworking_salas.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Text;
-using System.Text.Json. Serialization;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
+//Serviços tem que ficar antes do Builder
+// Controllers + JSON (evitar ciclos)
 //AddJsonOptions é para evitar ciclos infinitos de ligação entre usos e salas
 
 builder.Services.AddControllers()
-        .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+    .AddJsonOptions(x =>
+        x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
+// Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-//essa parte estava sendo considerada inútil pelo código
-//void AddJsonOptions(Func<object, object> value)
-//{
-//  throw new NotImplementedException();
-//}
-
-//adicionei para testar o swagger
-//builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
-
-
-
-
+// DbContext
+//Serviço adicionado por meio da injeção de dependência lá do AppDbContext
+//Services é o serviço que ele vai adicionar e a classe é AppDbContext
+//As configurações são adicionadas depois do options
+//Do SQLServer adiciona a string de conexão que fica no appsettings
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
-
 var app = builder.Build();
 
-//mais coisa para testar o swagger
-//if (app.Environment.IsDevelopment())
-//{
-//   app.UseSwagger();
-//}
+// Swagger
+app.UseSwagger();
+app.UseSwaggerUI();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
-
-//app.UseHttpsRedirection();
-
+// Pipeline
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 
 //not sure if this is my function in this team
@@ -17,6 +18,7 @@ namespace coworking_salas.Models
         [Required]
         public string Password { get; set; }
         [Required]
+        [JsonIgnore]
         public Perfil Perfil { get; set; }
         
         // usuário vai estar ligado a uma coleção com vários usuários

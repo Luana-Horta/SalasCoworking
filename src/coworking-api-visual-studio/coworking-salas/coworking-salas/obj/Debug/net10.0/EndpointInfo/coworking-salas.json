@@ -1,17 +1,9 @@
 {
-  "openapi": "3.1.1",
+  "openapi": "3.0.4",
   "info": {
-    "title": "coworking-salas | v1",
-    "version": "1.0.0"
+    "title": "coworking-salas",
+    "version": "1.0"
   },
-  "servers": [
-    {
-      "url": "https://localhost:7195"
-    },
-    {
-      "url": "http://localhost:5067"
-    }
-  ],
   "paths": {
     "/api/Salas": {
       "get": {
@@ -32,21 +24,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Sala"
+                "$ref": "#/components/schemas/SalaCreateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Sala"
+                "$ref": "#/components/schemas/SalaCreateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Sala"
+                "$ref": "#/components/schemas/SalaCreateDto"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -66,11 +57,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int32"
             }
           }
@@ -91,11 +78,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int32"
             }
           }
@@ -117,8 +100,7 @@
                 "$ref": "#/components/schemas/Sala"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -136,11 +118,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int32"
             }
           }
@@ -184,8 +162,7 @@
                 "$ref": "#/components/schemas/Uso"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -205,11 +182,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int32"
             }
           }
@@ -230,11 +203,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int32"
             }
           }
@@ -256,8 +225,7 @@
                 "$ref": "#/components/schemas/Uso"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -275,11 +243,7 @@
             "in": "path",
             "required": true,
             "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
+              "type": "integer",
               "format": "int32"
             }
           }
@@ -295,265 +259,189 @@
   "components": {
     "schemas": {
       "LinkDto": {
-        "required": [
-          "id",
-          "href",
-          "rel",
-          "metodo"
-        ],
         "type": "object",
         "properties": {
           "id": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "href": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "rel": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           },
           "metodo": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string",
+            "nullable": true
           }
-        }
-      },
-      "Perfil": {
-        "type": "integer"
+        },
+        "additionalProperties": false
       },
       "Sala": {
         "required": [
-          "nome",
-          "tipoSala",
           "capacidade",
-          "descrição",
+          "criadoEm",
+          "descricao",
+          "nome",
           "recursos",
-          "criadoEm"
+          "tipoSala"
         ],
         "type": "object",
         "properties": {
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LinkDto"
+            },
+            "nullable": true
+          },
           "id": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "nome": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "minLength": 1,
+            "type": "string"
           },
           "tipoSala": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "minLength": 1,
+            "type": "string"
           },
           "capacidade": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int32"
           },
-          "descrição": {
-            "type": [
-              "null",
-              "string"
-            ]
+          "descricao": {
+            "minLength": 1,
+            "type": "string"
           },
           "recursos": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "minLength": 1,
+            "type": "string"
           },
           "criadoEm": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
-            "format": "int32"
+            "type": "string",
+            "format": "date-time"
           },
           "usos": {
-            "type": [
-              "null",
-              "array"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/Uso"
-            }
+            },
+            "nullable": true
           },
           "usuarios": {
-            "type": [
-              "null",
-              "array"
-            ],
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/SalaUsuarios"
-            }
-          },
-          "links": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/LinkDto"
-            }
+            },
+            "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "SalaCreateDto": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoSala": {
+            "type": "string",
+            "nullable": true
+          },
+          "capacidade": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "recursos": {
+            "type": "string",
+            "nullable": true
+          },
+          "criadoEm": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
       },
       "SalaUsuarios": {
         "type": "object",
         "properties": {
           "salaId": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "sala": {
             "$ref": "#/components/schemas/Sala"
           },
           "usuarioId": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int32"
-          },
-          "usuario": {
-            "$ref": "#/components/schemas/Usuario"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "TipoSala": {
-        "type": "integer"
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "Uso": {
         "required": [
-          "descricao",
           "data",
-          "valor",
+          "descricao",
+          "salaId",
           "tipo",
-          "salaId"
+          "valor"
         ],
         "type": "object",
         "properties": {
+          "links": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LinkDto"
+            },
+            "nullable": true
+          },
           "id": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int32"
           },
           "descricao": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "minLength": 1,
+            "type": "string"
           },
           "data": {
             "type": "string",
             "format": "date-time"
           },
           "valor": {
-            "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
-            "type": [
-              "number",
-              "string"
-            ],
+            "type": "number",
             "format": "double"
           },
           "tipo": {
             "$ref": "#/components/schemas/TipoSala"
           },
           "salaId": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
+            "type": "integer",
             "format": "int32"
-          },
-          "sala": {
-            "$ref": "#/components/schemas/Sala"
-          },
-          "links": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/LinkDto"
-            }
           }
-        }
-      },
-      "Usuario": {
-        "required": [
-          "nome",
-          "password",
-          "perfil"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "pattern": "^-?(?:0|[1-9]\\d*)$",
-            "type": [
-              "integer",
-              "string"
-            ],
-            "format": "int32"
-          },
-          "nome": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "password": {
-            "type": [
-              "null",
-              "string"
-            ]
-          },
-          "perfil": {
-            "$ref": "#/components/schemas/Perfil"
-          },
-          "salas": {
-            "type": [
-              "null",
-              "array"
-            ],
-            "items": {
-              "$ref": "#/components/schemas/SalaUsuarios"
-            }
-          }
-        }
+        },
+        "additionalProperties": false
       }
     }
   },

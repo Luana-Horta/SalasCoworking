@@ -1,6 +1,9 @@
-﻿namespace coworking_salas.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace coworking_salas.Models
 {
     //objeto para montar o link dentro da aplicação
+    [NotMapped]
     public class LinkDto
     {
         //id do objeto manipulado
@@ -32,6 +35,7 @@
     //relação das listas e links
     public class LinksHATEOS
     {
+        [NotMapped]
         public List<LinkDto> Links { get; set; } = new List<LinkDto>();
     }
 }

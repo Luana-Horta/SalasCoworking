@@ -1,14 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
+//Tradução de modelo orientado a objetos para modelo de banco de dados relacional
+using Microsoft.EntityFrameworkCore;
 
 namespace coworking_salas.Models
 {
+    //AppContext (herda) de DbContext(do EntityFrameWorkCore)
+    //pega essas configurações por injeção de dependência( que é quando não quer ficar criando instâncias das classes de forma programática)
+    //não ficar criando uma depedência entre os objetos, vai fazer via configuração em que o programa vai injetar a classe automaticamente através de
+    //configuração e não via progrmação criando uma nova instância e faz a configuração na classe de programa(Program.cs)
+    //configura as tabelas no banco de dados
     public class AppDbContext : DbContext
     {
+        //Cria um ctor(atalho para construtor) recebe DbContextOptions(injeção de depedência) que são as opções que ele vai receber do sistema
+        //e ele passa para a sua base que é a classe pai (base(options)) que é o DbContext pré configurado
         public AppDbContext(DbContextOptions options) : base(options)
         { 
 
         }
-        //o On ModelCreating faz com que quando cria um modelo tem como de modo programático configurar as relações
+        //O On ModelCreating faz com que quando cria um modelo tem como de modo programático configurar as relações
         protected override void OnModelCreating(ModelBuilder builder)
         {
             //Entity é a entidade que quer configurar que no caso é a SalaUsuarios
@@ -32,6 +41,8 @@ namespace coworking_salas.Models
                .HasForeignKey(c => c.UsuarioId);
 
         }
+        //Objetos, as tabelas/ entidades que vão ser criadas
+        //DbSet é um conjunto de dados da tabela de dados, a tabela <Sala>...
         //tabela chamada salas baseada na classe sala
         public DbSet<Sala> Salas { get; set; }
         public DbSet<Uso> Usos { get; set; }
