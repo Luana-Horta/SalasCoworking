@@ -87,17 +87,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Sala"
+                "$ref": "#/components/schemas/SalaUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Sala"
+                "$ref": "#/components/schemas/SalaUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Sala"
+                "$ref": "#/components/schemas/SalaUpdateDto"
               }
             }
           }
@@ -280,69 +280,6 @@
         },
         "additionalProperties": false
       },
-      "Sala": {
-        "required": [
-          "capacidade",
-          "criadoEm",
-          "descricao",
-          "nome",
-          "recursos",
-          "tipoSala"
-        ],
-        "type": "object",
-        "properties": {
-          "links": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/LinkDto"
-            },
-            "nullable": true
-          },
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "nome": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "tipoSala": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "capacidade": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "descricao": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "recursos": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "criadoEm": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "usos": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Uso"
-            },
-            "nullable": true
-          },
-          "usuarios": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SalaUsuarios"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "SalaCreateDto": {
         "type": "object",
         "properties": {
@@ -373,19 +310,36 @@
         },
         "additionalProperties": false
       },
-      "SalaUsuarios": {
+      "SalaUpdateDto": {
         "type": "object",
         "properties": {
-          "salaId": {
+          "id": {
             "type": "integer",
             "format": "int32"
           },
-          "sala": {
-            "$ref": "#/components/schemas/Sala"
+          "nome": {
+            "type": "string",
+            "nullable": true
           },
-          "usuarioId": {
+          "tipoSala": {
+            "type": "string",
+            "nullable": true
+          },
+          "capacidade": {
             "type": "integer",
             "format": "int32"
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "recursos": {
+            "type": "string",
+            "nullable": true
+          },
+          "criadoEm": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false

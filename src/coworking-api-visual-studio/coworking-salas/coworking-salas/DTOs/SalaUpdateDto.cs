@@ -1,12 +1,9 @@
-﻿using System.Text.Json.Serialization;
-
-namespace coworking_salas.DTOs
+﻿namespace coworking_salas.DTOs
 {
-    public class SalaCreateDto
+    public class SalaUpdateDto
     {
+        public int Id { get; set; }
         public string Nome { get; set; }
-        
-        [JsonPropertyName("tipoSala")]
         public string TipoSala { get; set; }
         public int Capacidade { get; set; }
         public string Descricao { get; set; }

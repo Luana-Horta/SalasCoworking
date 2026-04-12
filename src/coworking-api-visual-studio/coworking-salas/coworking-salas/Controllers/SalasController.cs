@@ -93,25 +93,24 @@ namespace coworking_salas.Controllers
         // atualizar os dados da sala
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Update(int id, Sala model)
+        public async Task<ActionResult> Update(int id, SalaUpdateDto dto)
         {
-            //se o id for diferente dá um bad request
-            if (id != model.Id) return BadRequest();
+            //if (id != dto.Id) return BadRequest();
 
-            // ver se o modelo existe na base de dados e o asnotracking tira a tag de alteração de dados
-            var modeloDb = await _context.Salas.AsNoTracking()
-                .FirstOrDefaultAsync(c => c.Id == id);
-            //se for null retorna not found
-            if (modeloDb == null) return NotFound();
+            var model = await _context.Salas.FindAsync(id);
+            if (model == null) return NotFound();
 
-            //se a sala existir vai atualizar os dados
-            _context.Salas.Update(model);
+            model.Nome = dto.Nome;
+            model.TipoSala = dto.TipoSala;
+            model.Capacidade = dto.Capacidade;
+            model.Descricao = dto.Descricao;
+            model.Recursos = dto.Recursos;
+            model.CriadoEm = dto.CriadoEm;
+
             await _context.SaveChangesAsync();
 
-            //não precisa retornar conteúdo porque você só quer atualizar a informação
             return NoContent();
         }
-
         //Delete é usado para excluir dados. Tudo que você precisa é o Id:
 
         [HttpDelete("{id}")]

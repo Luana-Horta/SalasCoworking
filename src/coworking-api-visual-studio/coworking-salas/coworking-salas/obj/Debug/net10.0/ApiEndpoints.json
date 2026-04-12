@@ -55,8 +55,8 @@
         "IsRequired": true
       },
       {
-        "Name": "model",
-        "Type": "coworking_salas.Models.Sala",
+        "Name": "dto",
+        "Type": "coworking_salas.DTOs.SalaUpdateDto",
         "IsRequired": true
       }
     ],
